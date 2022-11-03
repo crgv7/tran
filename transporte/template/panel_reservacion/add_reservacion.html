@@ -1,0 +1,122 @@
+<!DOCTYPE>
+<html>
+<head>
+    {% load static %}
+    <title>add_reservacion</title>  
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
+</head>
+
+<body>
+    {% include "template/componentes/nav.html" %}
+    
+    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
+     <div class="row">
+            <div class="row text-center"><h5>Crear reservacion</h5></div>
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control w-50" id="nombre" aria-describedby="emailHelp">
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Apellido</label>
+                            <input type="text" class="form-control w-50" id="pass">
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label">CI</label>
+                            <input type="text" class="form-control w-50" id="nombre">
+                          </div>
+                          <div class="mb-3">
+                            <label class="form-label">Telefono</label>
+                            <input type="text" class="form-control w-50" id="tel">
+                          </div>
+                    </div>                     
+                    <div class="col-6">
+                        <div class="row text-center"><label>Fecha</label></div>
+                        <div class="row mt-3">
+                          <div class=" container col-6 d-flex justify-content-end">
+                            <div class="w-25 text-center"><label class="">Dia</label></div>                                                       
+                             <div class="w-25">
+                              <input class="w-100" type="number" value="0" min="0" max="31" step="1"/>
+                            </div>                          
+                          </div>
+                          <div class="col-6 d-flex justify-content-start">
+                            <div class="w-25 text-center"><label class="">Mes</label></div>                            
+                            <div class="w-25">
+                              <input class="w-100" type="number" value="0" min="0" max="12" step="1"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=" container row mt-5">
+                          <div class="d-flex justify-content-start">
+                            <label class="m-2">Tipo de reservacion</label>
+                            <select class="form-select w-50" aria-label="Default select example">
+                              <option selected>seleccionar</option>
+                              <option value="1">Carga</option>
+                              <option value="2">Pasajero</option>
+                              <option value="3">Mantenimiento</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class=" container row">
+                          <div class="d-flex justify-content-start m-4">
+                            <label class="m-2 pl-2">Tipo de vehiculo</label>
+                            <select class="form-select w-50" aria-label="Default select example">
+                              <option selected>seleccionar</option>
+                              <option value="1">Camion</option>
+                              <option value="2">Ligero</option>
+                              <option value="3">Guagua</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="container d-flex justify-content-center">
+                          <label class=""> Costo 0$</label>
+                        </div>
+                       </div>
+                    </div>  
+              </form>   
+
+              <div class="container p-4">
+                <div class="row d-flex justify-content-end">
+                  
+                <button type="button" class="btn btn-light m-2 w-25">Cancelar</button>
+                <button type="button" class="btn btn-primary m-2 w-25">Guardar</button>
+                </div>
+                
+
+              </div>
+              
+
+
+
+        </div>
+    </div>
+
+
+
+    {% include "template/componentes/footer.html"  %}
+
+
+    <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'panel/js/custom.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

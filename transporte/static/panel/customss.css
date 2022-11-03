@@ -1,0 +1,30 @@
+.colorprincipal{
+background-color: rgb(173, 192, 189)
+
+}
+
+.textbuscar{
+    width: 20%;
+}
+
+.mg-l {
+    margin-left: 100px;
+}
+
+
+
+    a:link, a:visited,  a:hover, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.botones{
+    width: 50px;
+}
+
+
+.nombre_Clase{
+    background-color: aquamarine;
+}
+

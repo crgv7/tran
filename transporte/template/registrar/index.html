@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--- Carga a carpeta static-->
+    {% load static %}
+    <!--- Carga crispy-form-->
+    {% load crispy_forms_tags %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'registrar/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'registrar/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'registrar/css/customs.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="post" id="signup-form" class="signup-form">{% csrf_token %}
+                        <h2 class="form-title">Crear Cuenta</h2>
+                        <div class="form-group">
+
+                          <!--  Codigo para mostra mensaje de error -->
+                          {% if messages %}
+
+                          {% for mensaje in messages %}
+
+                          <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
+
+                          {% endfor%}
+
+                          {% endif %}
+                            {{form.nombre | as_crispy_field}} <!--campo de nombre -->
+
+                        </div>
+                        <div class="form-group">
+                            {{form.correo|as_crispy_field}} <!--campo de correo -->
+                        </div>
+                        <div class="form-group">
+                            {{form.password|as_crispy_field}}<!--campo de password -->
+
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                             {{form.rpassword|as_crispy_field}} <!--campo de repetir password -->
+                        </div>
+                        <div class="form-group">
+                          <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>Estoy de acuerdo con los terminos  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary mb-3 form-submit" id="submit">enviar</button>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        Ya tengo cuenta ? <a href="/login" class="loginhere-link">  Autenticar aqui</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'registrar/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'registrar/js/main.js' %}"></script>
+
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
