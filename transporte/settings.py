@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gestionreservacion',
     'registrarusuario',
+    'gestionvehiculo',
     'crispy_forms',
 ]
 
@@ -139,3 +140,6 @@ mensajes_error.SUCCESS: "success",
 mensajes_error.WARNING: "info",
 mensajes_error.ERROR:"danger",
 }
+
+MEDIA_URL="/media/"
+MEDIA_ROOT=os.path.join(BASE_DIR, "media")

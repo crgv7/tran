@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  {% load crispy_forms_tags %}
 	{% load static %}
 	<title>Login V2</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-<!--===============================================================================================-->	
+
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -17,13 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/iconic/css/material-design-iconic-font.min.css' %}">
 <!--=============================================================================================h==-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animsition/css/animsition.min.css'%}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/daterangepicker/daterangepicker.css' %}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
@@ -31,35 +31,38 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" id="aut">{% csrf_token %}
+				<form  method="post" class="login100-form validate-form" id="aut">{% csrf_token %}
 					<span class="login100-form-title p-b-26">
 						Bienvenido
 					</span>
 					<span class="login100-form-title p-b-48">
-						<i class="zmdi zmdi-font"></i>
+						<img class="w-25" src="\media\logo.png" alt="">
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: carlosrgv@gmail.com">
-						<input class="input100" type="text" name="email" id="correo">
-						<span class="focus-input100" data-placeholder="Correo"></span>
-					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="12345678">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass" id="passs">
-						<span class="focus-input100" data-placeholder="Contraseña"></span>
-					</div>
+						{{form|crispy}}
+
+
+
+						<!--  Codigo para mostra mensaje de error -->
+ 					 {% if messages %}
+
+ 					 {% for mensaje in messages %}
+
+ 					 <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
+
+ 					 {% endfor%}
+
+ 					 {% endif %}
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn " type="submit" id="submit">
+							<button class="login100-form-btn" type="submit" id="submit">
 								Entrar
 							</button>
 						</div>
@@ -78,10 +81,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div id="dropDownSelect1"></div>
-	
+
 <!--===============================================================================================-->
 	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <!--===============================================================================================-->
@@ -98,7 +101,7 @@
 	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'login/js/main.js' %}"></script>
-	<script src="{% static 'login/js/custom.js' %}"></script>
+	<!--<script src="{% static 'login/js/custom.js' %}"></script> -->
 
 </body>
 </html>

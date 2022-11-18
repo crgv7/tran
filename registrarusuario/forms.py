@@ -1,6 +1,6 @@
 from django import forms
 from .models import registrar
-from django.forms import ValidationError
+
 
 
 
@@ -18,7 +18,7 @@ class Registrarform(forms.ModelForm):
             "rpassword"
 
 
-        ]     
+        ]
         widgets={
             "nombre": forms.TextInput(attrs={"class": "form-input","Placeholder": "Nombre", "id":"name"}),
             "correo": forms.TextInput(attrs={"class": "form-input","Placeholder": "Correo", "id":"correo"}),

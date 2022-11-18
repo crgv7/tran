@@ -20,62 +20,76 @@
 </head>
 <body>
 
-    <div class="main">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form  method="post" class="login100-form validate-form" id="aut">{% csrf_token %}
+					<span class="login100-form-title p-b-26">
+						Bienvenido
+					</span>
+					<span class="login100-form-title p-b-48">
+						<img class="w-25" src="\media\logo.png" alt="">
+					</span>
 
-        <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
-            <div class="container">
-                <div class="signup-content">
-                    <form method="post" id="signup-form" class="signup-form">{% csrf_token %}
-                        <h2 class="form-title">Crear Cuenta</h2>
-                        <div class="form-group">
 
-                          <!--  Codigo para mostra mensaje de error -->
-                          {% if messages %}
-
-                          {% for mensaje in messages %}
-
-                          <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
-
-                          {% endfor%}
-
-                          {% endif %}
-                            {{form.nombre | as_crispy_field}} <!--campo de nombre -->
-
-                        </div>
-                        <div class="form-group">
-                            {{form.correo|as_crispy_field}} <!--campo de correo -->
-                        </div>
-                        <div class="form-group">
-                            {{form.password|as_crispy_field}}<!--campo de password -->
-
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                             {{form.rpassword|as_crispy_field}} <!--campo de repetir password -->
-                        </div>
-                        <div class="form-group">
-                          <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>Estoy de acuerdo con los terminos  <a href="#" class="term-service">Terms of service</a></label>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary mb-3 form-submit" id="submit">enviar</button>
-                        </div>
-                    </form>
-                    <p class="loginhere">
-                        Ya tengo cuenta ? <a href="/login" class="loginhere-link">  Autenticar aqui</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- JS -->
-    <script src="{% static 'registrar/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'registrar/js/main.js' %}"></script>
+						{{form|crispy}}
 
 
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+						<!--  Codigo para mostra mensaje de error -->
+ 					 {% if messages %}
+
+ 					 {% for mensaje in messages %}
+
+ 					 <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
+
+ 					 {% endfor%}
+
+ 					 {% endif %}
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit" id="submit">
+								Entrar
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+						<span class="txt1">
+							No tiene cuenta?
+						</span>
+
+						<a class="txt2" href="registrar/">
+							Registrarse
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/js/main.js' %}"></script>
+	<!--<script src="{% static 'login/js/custom.js' %}"></script> -->
+
+</body>
 </html>

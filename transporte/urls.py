@@ -15,18 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 from transporte.view import autenticar
-from transporte.view import registrar_user
+#from transporte.view import registrar_user
 from transporte.view import panel
-from transporte.view import add_reservacion
+from transporte.view import add_reservacion,eliminar,editar, panel_secretaria, panel_vehiculo, add_vehiculo
+from .view import Vregistro, cerrar_sesion
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("login/", autenticar),
-    path("login/registrar/", registrar_user),
+    path("", autenticar),
+    #path("login/registrar/", registrar_user),
+    path('registrar/',Vregistro.as_view()),
     path("panel/", panel),
-    path("login/panel/", panel),
+#    path("login/panel/", panel),
     path("add_reservacion/", add_reservacion),
+    path("registrar/panel/", panel),
+    path("eliminar/<id>", eliminar),
+    path("editar/<id>", editar),
+    path("", cerrar_sesion,name="cerrar_sesion"),
+    path("panels/", panel_secretaria),
+    path("panels/panelv/", panel_vehiculo),
+    path("add_vehiculo/", add_vehiculo),
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
