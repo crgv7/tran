@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'registrarusuario',
     'gestionvehiculo',
     'crispy_forms',
+    'gestionitinerario',
+    'gestiontarifa',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'transporte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/cg/Desktop/tran/transporte/'],
+        'DIRS': ['C:/Users/cg/Desktop/tran/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'transporte/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

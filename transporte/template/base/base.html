@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'panel_secretaria/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'panel_secretaria/assets/css/Features-Cards-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'panel_secretaria/assets/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
+</head>
+
+<body>
+  <!– include navbar –>
+   {% include "transporte/template/componentes/nav.html" %}
+
+   {% block content %}{% endblock %}
+
+    <!– include footer –>
+    {% include "transporte/template/componentes/footer.html" %}
+    <script src="{% static 'panel_secretaria/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'panel/js/customss.js' %}"></script>
+</body>
+
+</html>

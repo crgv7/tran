@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html>
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <title>add_vehiculo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
+</head>
+
+<body>
+    {% include "transporte/template/componentes/nav.html" %}
+    <form method="post">{% csrf_token %}
+    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
+     <div class="row">
+            <div class="row text-center"><h5>Crear reservacion</h5></div>
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                              {{form.Matricula|as_crispy_field}}
+                          </div>
+                          <div class="mb-3">
+                            {{form.Modelo |as_crispy_field}}
+                          </div>
+
+                          <div class="mb-3">
+                              {{form.vehiculo |as_crispy_field}}
+                          </div>
+                    </div>
+
+                    </div>
+              </form>
+
+              <div class="container p-4">
+                <div class="row d-flex justify-content-end mt-4">
+
+                <a href="/panels/panelv/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
+                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button>
+                </div>
+
+
+              </div>
+
+
+
+
+        </div>
+    </div>
+  </form>
+
+
+
+    {% include "transporte/template/componentes/footer.html"  %}
+
+
+    <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'panel/js/custom.js' %}"></script>
+</body>
+</html>
