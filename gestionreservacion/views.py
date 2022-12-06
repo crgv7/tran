@@ -1,21 +1,23 @@
 from django.shortcuts import render,redirect
-from gestionreservacion.models import Reservacion
-from gestionreservacion.forms import reservacionform
-from transporte.view import users
+from gestionreservacion.models import Reservacion   #importa el modelo del models.py
+from gestionreservacion.forms import reservacionform # importa el formulario  del archivo form
+from transporte.view import users     # importar la variable user pq se va utilizar en esta vista
 # Create your views here.
 
 def panel(request):
 
-    print("hola", users())
     reservaciones=Reservacion.objects.all().filter(nombre=users()) # para hacer filtro
-    return render(request, "gestionreservacion/template/panel_reservacion/panel.html", {"reservaciones":reservaciones})
-
+    return render(request, "gestionreservacion/template/panel_reservacion/panel.html", {"reservaciones":reservaciones}) # carga el html
+                                                                                                                        # y sele pasa
+                                                                                                                        #los objetos de la
+                                                                                                                        # base de datos a la
+                                                                                                                        # plantilla html
 def add_reservacion(request):
         context={}
 
         if request.method == "POST":
             form=reservacionform(request.POST, initial={'nombre': users()})
-            form.fields['nombre'].disabled = "False"
+            form.fields['nombre'].disabled = "False" #habilita el campo para que pase el dato atraves  del post,
 
 
 
@@ -30,7 +32,7 @@ def add_reservacion(request):
                 vehiculo=form.cleaned_data.get("vehiculo")
                 costo=form.cleaned_data.get("costo")
 
-                reg=Reservacion.objects.create(
+                reg=Reservacion.objects.create( #crea objetos en la tabla
                     nombre=nombre,
                     apellido=apellido,
                     telefono=telefono,
@@ -45,23 +47,22 @@ def add_reservacion(request):
 
 # si no es post muestra el formulario
 
-        form=reservacionform(initial={'nombre': users()} )
-        form.fields['nombre'].disabled = "True"
+        form=reservacionform(initial={'nombre': users()} ) #El nombre de usurio ya inicalizado en el campo
+        form.fields['nombre'].disabled = "True"  #desabilita el campo
 
 
 
         context["form"]=form
         return render(request, "gestionreservacion/template/panel_reservacion/add_reservacion.html", context)
 
-def eliminar(request, id):
-    print("llamo vista")
+def eliminar(request, id): # eliminar obejeto
     reservaciones=Reservacion.objects.all().filter(nombre=users())
     reserv=Reservacion.objects.get(id=id)
     reserv.delete()
     return redirect("/panel/")
 
-def editar(request, id):# me qude aqui en editar
-#    reservaciones=Reservacion.objects.all().filter(nombre=usuario)
+def editar(request, id): # editar reservacion
+
     reserv=Reservacion.objects.get(id=id)
 
     context={}

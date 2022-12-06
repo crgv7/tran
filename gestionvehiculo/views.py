@@ -54,7 +54,7 @@ def editar(request, id):# me qude aqui en editar
     context={}
     form=vehiculoform(initial={'Matricula': vehi.Matricula,
                                       'Modelo': vehi.Modelo,
-                                      'vehiculo': vehi.vehiculo
+                                       'vehiculo': vehi.vehiculo
         })
     context["form"]=form
 

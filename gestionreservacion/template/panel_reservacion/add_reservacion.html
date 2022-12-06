@@ -1,15 +1,15 @@
 <!DOCTYPE>
 <html>
+{% extends "transporte/template/base/base.html" %} <!-- hernecia de platillas hereda de la plantilla base-->
 <head>
-    {% load static %}
-    {% load crispy_forms_tags %}
-    <title>add_reservacion</title>
+    {% load static %} <!-- Carga los archivos staticos-->
+    {% load crispy_forms_tags %} <!-- carga el crispy form -->
+    {% block title %} Add_reservacion {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
 </head>
 
-<body>
-    {% include "transporte/template/componentes/nav.html" %}
+  {% block content %}
     <form method="post">{% csrf_token %}
     <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
      <div class="row">
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="mb-3">
-                              {{form.nombre|as_crispy_field}}
+                              {{form.nombre|as_crispy_field}}  <!--  se llama el campo nombre en el form (formulario)  Crispy para dar mejor estilo a los form-->
                           </div>
                           <div class="mb-3">
                             {{form.apellido |as_crispy_field}}
@@ -45,7 +45,7 @@
                           <div class="col-6 d-flex justify-content-start">
 
                             <div class="w-25">
-                            <!--  <input class="w-100" type="number" value="0" min="0" max="12" step="1"/> -->
+
                             {{form.mes |as_crispy_field}}
                             </div>
                           </div>
@@ -53,13 +53,7 @@
                         <div class=" container row mt-5">
                           <div class="d-flex justify-content-center">
                               <span class= "">{{form.vehiculo |as_crispy_field}}</span>
-                      <!--      <label class="m-2">Tipo de reservacion</label>
-                            <select class="form-select w-50" aria-label="Default select example">
-                              <option selected>seleccionar</option>
-                              <option value="1">Carga</option>
-                              <option value="2">Pasajero</option>
-                              <option value="3">Mantenimiento</option>
-                            </select> -->
+
                           </div>
                         </div>
 
@@ -75,7 +69,7 @@
                 <div class="row d-flex justify-content-end mt-4">
 
                 <a href="/panel/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
-                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button>
+                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button> 
                 </div>
 
 
@@ -90,10 +84,10 @@
 
 
 
-    {% include "transporte/template/componentes/footer.html"  %}
+
 
 
     <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'panel/js/custom.js' %}"></script>
-</body>
+{% endblock %}
 </html>

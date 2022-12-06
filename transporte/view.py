@@ -53,6 +53,7 @@ def autenticar (request):
             if usuario is not None:
                  #me quede aqui para definir la secretaria
                 if usuario.username == 'yo':
+                    login(request, usuario)
                     return redirect("panels/")
                 login(request, usuario)
                 return redirect("panel/")

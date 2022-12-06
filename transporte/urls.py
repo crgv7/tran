@@ -32,6 +32,6 @@ urlpatterns = [
     path("", autenticar),
     path('registrar/',Vregistro.as_view()),
     path("", cerrar_sesion,name="cerrar_sesion"),
-    path("panels/", panel_secretaria),
+    path("panels/", panel_secretaria, name="panels"),
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )

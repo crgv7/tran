@@ -1,38 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+{% extends "transporte/template/base/base.html" %}
 <head>
     {% load static %}
 
 
-<title>Panel</title>
-
-<link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
-
+{% block title %} panel_itinerario {% endblock %}
 </head>
 
-<body>
 
-  <div class="bg-danger">
-    {% if user.is_authenticated %}
-    Hola {{user.username}} &nbsp;&nbsp; <a href="{% url 'cerrar_sesion' %}">cerrar_sesion</a>
-    {% else %}
-    <a href="#"> has Login</a>
-
-    {% endif %}
-
-
-
-  </div>
-
-  <!– include navbar –>
-   {% include "transporte/template/componentes/nav.html" %}
-
-   <!– panel –>
+{% block content %}
 
         <div class="container rounded-3 shadow border-dark colorprincipal">
       <div>
-
     <div class="row  text-center  m-4 ">
         <h4 class="mt-4">Itinerario</h4>
       </div>
@@ -93,8 +74,43 @@
       {%for ite in itinerario %}
        <tr>
       <td>{{ite.ruta}}</td>
-       <td>{{ite.hora_llegada}}:{{ite.minutos_llegada}}</td>
-       <td>{{ite.hora_salida}}:{{ite.minutos_salida}}</td>
+
+      {% if ite.hora_llegada < 10 %}
+
+      {% if ite.minutos_llegada < 10 %}
+       <td>0{{ite.hora_llegada}}:0{{ite.minutos_llegada}}</td>
+
+      {% else %}
+
+      <td>0{{ite.hora_llegada}}:{{ite.minutos_llegada}}</td>
+
+      {% endif %}
+
+      {% elif ite.minutos_llegada < 10 %}
+      <td>{{ite.hora_llegada}}:0{{ite.minutos_llegada}}</td>
+      {% else %}
+      <td>{{ite.hora_llegada}}:{{ite.minutos_llegada}}</td>
+      {% endif %}
+
+
+      {% if ite.hora_salida < 10 %}
+
+      {% if ite.minutos_salida < 10 %}
+       <td>0{{ite.hora_salida}}:0{{ite.minutos_salida}}</td>
+
+      {% else %}
+
+      <td>0{{ite.hora_salida}}:{{ite.minutos_salida}}</td>
+
+      {% endif %}
+
+      {% elif ite.minutos_salida < 10 %}
+      <td>{{ite.hora_salida}}:0{{ite.minutos_salida}}</td>
+      {% else %}
+      <td>{{ite.hora_salida}}:{{ite.minutos_salida}}</td>
+      {% endif %}
+
+
 
        <td><a href="paneli/editar/{{ite.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -114,13 +130,7 @@
 
 </div></div></div>
 
-<!– end panel –>
-
-<!– include footer –>
-{% include "transporte/template/componentes/footer.html" %}
 
 
-<script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'panel/js/customss.js' %}"></script>
-</body>
+{% endblock %}
 </html>

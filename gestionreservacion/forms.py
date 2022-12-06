@@ -9,7 +9,6 @@ from .models import Reservacion
 #formulario
 
 class reservacionform(forms.ModelForm):
-   # repeat_password=forms.CharField(widget=forms.TextInput(attrs={"class": "form-input","Placeholder": "Repetir contraseña", "id":"rpassword", "name":"rpassword"}))
     dia=forms.IntegerField(initial=1,max_value=31,min_value=1,disabled=False)
     mes=forms.IntegerField(initial=1,max_value=12,min_value=1,disabled=False)
 

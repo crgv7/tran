@@ -1,5 +1,7 @@
 .colorprincipal{
-background-color: rgb(173, 192, 189)
+  background: rgb(218,215,215);
+  background: linear-gradient(69deg, rgba(252,248,248,100) 15%, rgba(218,215,215,1) 33%, rgba(179,179,183,1) 62%, rgba(130,132,132,1) 87%);
+
 
 }
 

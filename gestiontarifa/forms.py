@@ -22,7 +22,7 @@ class tarifaform(forms.ModelForm):
 
         ]
        widgets={
-            "tipo_reservacion": forms.TextInput(attrs={"class": "form-input", "id":"name"}),
+            "tipo_reservacion": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle", "id":"tipo_reservacion"}),
             "modelo": forms.TextInput(attrs={"class": "form-input","Placeholder": "Modelo", "id":"correo"}),
 
 

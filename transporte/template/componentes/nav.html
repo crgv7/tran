@@ -1,11 +1,24 @@
-<nav class="navbar shadow-sm  colorprincipal">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="fondo.png" alt="Logo" class="d-inline-block align-text-top w-25">
-      </a>
+<nav class="navbar colorprincipal shadow border-dark">
+    <div class="container-fluid position-relative">
+      {% if user.username == 'yo' %}
+      <a class="navbar-brand align-text-center d-inline" href="{% url 'panels' %}">
+        <img src="\media\logo.png" alt="Logo" class="w-25 pe-3">Inicio</a>
+     {% else %}
+
+     <a class="navbar-brand" href="#">
+       <img src="\media\logo.png" alt="Logo" class="d-inline-block align-text-top w-25"></a>
+      {% endif %}
+
+
     </div>
 
-<div class="container d-flex mb-4 pb-3">
+
+  <div class="">
+
+</div>
+
+
+<div class="container d-flex mb-4 pb-3 position-absolute mt-5">
 <div class="col-6"></div>
 
 <div class="col-6 d-flex justify-content-end">

@@ -1,15 +1,16 @@
 <!DOCTYPE>
 <html>
+{% extends "transporte/template/base/base.html" %}
 <head>
     {% load static %}
     {% load crispy_forms_tags %}
-    <title>add_vehiculo</title>
+    {% block title %} Add_Itinerario {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
 </head>
 
-<body>
-    {% include "transporte/template/componentes/nav.html" %}
+{% block content %}
+
     <form method="post">{% csrf_token %}
     <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
      <div class="row">
@@ -20,21 +21,23 @@
                         <div class="mb-3">
                               {{form.ruta|as_crispy_field}}
                           </div>
-                          <div class="mb-3">
-                            {{form.hora_llegada |as_crispy_field}}
-                          </div>
-
-                          <div class="mb-3">
+                          <div class="mb-3 row">
+                            <div class="col-6">
+                             {{form.hora_llegada |as_crispy_field}}
+                            </div>
+                            <div class="col-6">
                               {{form.minutos_llegada |as_crispy_field}}
+                            </div>
                           </div>
 
-                          <div class="mb-3">
-                            {{form.hora_salida |as_crispy_field}}
+
+
+                          <div class="mb-3 row">
+                            <div class="col-6">{{form.hora_salida |as_crispy_field}}</div>
+                            <div class="col-6">  {{form.minutos_salida |as_crispy_field}}</div>
                           </div>
 
-                          <div class="mb-3">
-                              {{form.minutos_salida |as_crispy_field}}
-                          </div>
+
                     </div>
 
                     </div>
@@ -59,10 +62,10 @@
 
 
 
-    {% include "transporte/template/componentes/footer.html"  %}
+
 
 
     <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'panel/js/custom.js' %}"></script>
-</body>
+{% endblock %}
 </html>

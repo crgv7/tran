@@ -35,6 +35,8 @@ def add_tarifa(request):
 # si no es post muestra el formulario
 
     form=tarifaform()
+    
+
     context["form"]=form
     return render(request, "gestiontarifa/template/panel_tarifa/add_tarifa.html",{"form":form})
 
@@ -55,9 +57,9 @@ def editar(request, id):# me qude aqui en editar
     tarifass=Tarifa.objects.get(id=id)
 
     context={}
-    form=tarifaform(initial={'tipo_reservacion': vehi.tipo_reservacion,
-                                      'modelo': vehi.modelo,
-                                      'cantidad_km': vehi.cantidad_km
+    form=tarifaform(initial={'tipo_reservacion': tarifass.tipo_reservacion,
+                                      'modelo': tarifass.modelo,
+                                      'cantidad_km': tarifass.cantidad_km
         })
     context["form"]=form
 

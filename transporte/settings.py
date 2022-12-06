@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ # instala las aplicaciones
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'gestionitinerario',
     'gestiontarifa',
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'transporte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/cg/Desktop/tran/'],
+        'DIRS': ['C:/Users/cg/Desktop/tran/'], # ruta de los templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'transporte.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = { # configura\cion de la base de datos
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gestionreservacion',
@@ -143,5 +144,7 @@ mensajes_error.WARNING: "info",
 mensajes_error.ERROR:"danger",
 }
 
-MEDIA_URL="/media/"
+MEDIA_URL="/media/" #accde a los archivos media (fotos, videos)
 MEDIA_ROOT=os.path.join(BASE_DIR, "media")
+CRISPY_TEMPLATE_PACK="bootstrap5" # Coge los estilos de bootstrap5
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # Coge los estilos de bootstrap5

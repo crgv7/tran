@@ -1,32 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    {% load static %}
+{% extends "transporte/template/base/base.html" %}
+
+{% block title %}Panel{% endblock %}
 
 
-<title>Panel</title>
-
-<link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
-
-</head>
-
-<body>
-
-  <div class="bg-danger">
-    {% if user.is_authenticated %}
-    Hola {{user.username}} &nbsp;&nbsp; <a href="{% url 'cerrar_sesion' %}">cerrar_sesion</a>
-    {% else %}
-    <a href="#"> has Login</a>
-
-    {% endif %}
-
-
-
-  </div>
-
-  <!– include navbar –>
-   {% include "transporte/template/componentes/nav.html" %}
+ {% block content %}
 
    <!– panel –>
 
@@ -117,11 +94,4 @@
 
 <!– end panel –>
 
-<!– include footer –>
-{% include "transporte/template/componentes/footer.html" %}
-
-
-<script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'panel/js/customss.js' %}"></script>
-</body>
-</html>
+{% endblock%}
