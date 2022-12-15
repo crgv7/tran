@@ -9,21 +9,26 @@ from .models import Tarifa
 #formulario
 
 class tarifaform(forms.ModelForm):
-   # repeat_password=forms.CharField(widget=forms.TextInput(attrs={"class": "form-input","Placeholder": "Repetir contraseña", "id":"rpassword", "name":"rpassword"}))
-   cantidad_km=forms.IntegerField(initial=1,max_value=10000,min_value=1,disabled=False)
+    cantidad_km=forms.IntegerField(initial=0,max_value=10000,min_value=0,disabled=False)
+    cantidad_pasajeros=forms.IntegerField(initial=0,max_value=10000,min_value=0,disabled=False)
+    cantidad_peso=forms.IntegerField(initial=0,max_value=10000,min_value=0,disabled=False)
 
-   class Meta:
-       model=Tarifa
-       fields=[
+    class Meta:
+        model=Tarifa
+        fields=[
             "tipo_reservacion",
             "modelo",
-            "cantidad_km"
+            "cantidad_km",
+            "cantidad_pasajeros",
+            "cantidad_peso",
 
 
         ]
-       widgets={
+        widgets={
             "tipo_reservacion": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle", "id":"tipo_reservacion"}),
-            "modelo": forms.TextInput(attrs={"class": "form-input","Placeholder": "Modelo", "id":"correo"}),
+            "modelo": forms.TextInput(attrs={"class": "form-input","Placeholder": "Modelo", "id":"modelo"}),
+
+
 
 
 

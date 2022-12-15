@@ -4,38 +4,41 @@
 <head>
     {% load static %}
     {% load crispy_forms_tags %}
-    {% block title %} Editar Itinerario {% endblock %}
+    {% block title %} Add_Itinerario {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
 </head>
 
-    {% block content %}
+{% block content %}
+
     <form method="post">{% csrf_token %}
     <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
      <div class="row">
-            <div class="row text-center"><h5>Crear reservacion</h5></div>
+            <div class="row text-center"><h5>Editar Itinerario</h5></div>
             <form>
                 <div class="row">
                     <div class="col-6">
                         <div class="mb-3">
                               {{form.ruta|as_crispy_field}}
                           </div>
-                          <div class="mb-3">
-                            {{form.hora_salida |as_crispy_field}}
+                          <div class="mb-3 row">
+                            <div class="col-6">
+                             {{form.hora_llegada |as_crispy_field}}
+                            </div>
+                            <div class="col-6">
+                              {{form.minutos_llegada |as_crispy_field}}
+                            </div>
                           </div>
 
 
-                          <div class="mb-3">
-                              {{form.minutos_salida |as_crispy_field}}
+
+                          <div class="mb-3 row">
+                            <div class="col-6">{{form.hora_salida |as_crispy_field}}</div>
+                            <div class="col-6">  {{form.minutos_salida |as_crispy_field}}</div>
                           </div>
-                          <div class="mb-3">
-                              {{form.hora_llegada|as_crispy_field}}
-                          </div>
-                          <div class="mb-3">
-                              {{form.minutos_llegada|as_crispy_field}}
-                          </div>
+
+
                     </div>
-
 
                     </div>
               </form>
@@ -43,7 +46,7 @@
               <div class="container p-4">
                 <div class="row d-flex justify-content-end mt-4">
 
-                <a  href="/panel/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
+                <a href="/panels/paneli/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
                 <button type="submit" class="btn btn-primary m-2 w-25">Actualizar</button>
                 </div>
 
@@ -56,7 +59,13 @@
         </div>
     </div>
   </form>
+
+
+
+
+
+
     <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'panel/js/custom.js' %}"></script>
- {% endblock %}
+{% endblock %}
 </html>

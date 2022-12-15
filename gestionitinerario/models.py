@@ -19,5 +19,4 @@ class Itinerario(models.Model):
     minutos_llegada=models.IntegerField(max_length=15)
     hora_salida=models.IntegerField(max_length=15)
     minutos_salida=models.IntegerField(max_length=15)
-
 # Create your models here.

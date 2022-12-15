@@ -6,7 +6,14 @@ from transporte.view import users     # importar la variable user pq se va utili
 
 def panel(request):
 
-    reservaciones=Reservacion.objects.all().filter(nombre=users()) # para hacer filtro
+    reservaciones=Reservacion.objects.all().filter(nombre=users()) # hace una consulta y hacer filtro por el nombre de usuario
+                                                                   # selecciona todos los objetos de la tabla que coincida con el nombre del usuario y lo guarda
+                                                                   # en esa variable
+
+
+
+
+
     return render(request, "gestionreservacion/template/panel_reservacion/panel.html", {"reservaciones":reservaciones}) # carga el html
                                                                                                                         # y sele pasa
                                                                                                                         #los objetos de la

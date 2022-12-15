@@ -23,15 +23,16 @@ from .view import Vregistro, cerrar_sesion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+#url de aplicaicones
     path('panel/', include('gestionreservacion.urls')),
     path('panels/panelv/', include('gestionvehiculo.urls')),
     path('panels/paneli/', include('gestionitinerario.urls')),
     path('panels/panelt/', include('gestiontarifa.urls')),
+#-----------------------------------------------------------------------
 
     path("", autenticar),
     path('registrar/',Vregistro.as_view()),
     path("", cerrar_sesion,name="cerrar_sesion"),
     path("panels/", panel_secretaria, name="panels"),
 ]
-urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT )#carga los archivos media

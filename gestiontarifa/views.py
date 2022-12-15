@@ -15,6 +15,7 @@ def add_tarifa(request):
 
     if request.method == "POST":
         form=tarifaform(request.POST)
+        print("entre al post")
 
 
         if form.is_valid():
@@ -23,19 +24,23 @@ def add_tarifa(request):
 
             modelo=form.cleaned_data.get("modelo")
             cantidad_km=form.cleaned_data.get("cantidad_km")
+            cantidad_pasajeros=form.cleaned_data.get("cantidad_pasajeros")
+            cantidad_peso=form.cleaned_data.get("cantidad_peso")
 
 
             reg=Tarifa.objects.create(
                 tipo_reservacion=tipo_reservacion,
                 modelo=modelo,
                 cantidad_km=cantidad_km,
+                cantidad_pasajeros=cantidad_pasajeros,
+                cantidad_peso=cantidad_peso,
                 costo=costo(cantidad_km)
             )
             reg.save()
 # si no es post muestra el formulario
 
-    form=tarifaform()
-    
+    form=tarifaform(initial={'cantidad_km': '0'})
+
 
     context["form"]=form
     return render(request, "gestiontarifa/template/panel_tarifa/add_tarifa.html",{"form":form})

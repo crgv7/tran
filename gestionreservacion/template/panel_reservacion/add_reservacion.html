@@ -10,7 +10,7 @@
 </head>
 
   {% block content %}
-    <form method="post">{% csrf_token %}
+    <form method="post" name="formulario">{% csrf_token %}
     <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
      <div class="row">
             <div class="row text-center"><h5>Crear reservacion</h5></div>
@@ -69,7 +69,7 @@
                 <div class="row d-flex justify-content-end mt-4">
 
                 <a href="/panel/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
-                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button> 
+                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button>
                 </div>
 
 

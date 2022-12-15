@@ -8,22 +8,22 @@
     {% block content %}
 
     <form method="post">{% csrf_token %}
-    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
+    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal w-50">
      <div class="row">
-            <div class="row text-center"><h5>Editar Tarifa</h5></div>
+            <div class="row text-center pt-3"><h5>Editar Tarifa</h5></div>
             <form>
                 <div class="row">
                     <div class="col-6">
-                        <div class="mb-3">
+                        <div class="mb-3 w-50">
                               {{form.tipo_reservacion|as_crispy_field}}
                           </div>
-                          <div class="mb-3">
+                          <div class="mb-3 w-50">
                             {{form.modelo |as_crispy_field}}
                           </div>
 
-                          <div class="mb-3">
-                              {{form.cantidad_km |as_crispy_field}}
-                          </div>
+                          <div class="mb-3 w-50"><span class="not-visible" id="kilo">{{form.cantidad_km |as_crispy_field}}</span></div>
+                          <div class="mb-3 w-50"><span  class="not-visible" id="pasajeros">{{form.cantidad_pasajeros |as_crispy_field}}</span></div>
+                          <div class="mb-3 w-50"><span  class="not-visible" id="peso">{{form.cantidad_peso |as_crispy_field}}</span></div>
                     </div>
 
                     </div>
@@ -45,5 +45,5 @@
         </div>
     </div>
   </form>
-
+<script src="{% static 'tarifa/tarifas.js' %}"></script>
 {% endblock %}

@@ -30,7 +30,7 @@ class Vregistro(View):
         if form.is_valid():
             usuario=form.save()
             login(request, usuario)
-            return redirect("panel/")
+            return redirect("/panel/")
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
@@ -51,10 +51,10 @@ def autenticar (request):
             global usuario
             usuario=authenticate(username=nombre_user, password=contra)
             if usuario is not None:
-                 #me quede aqui para definir la secretaria
-                if usuario.username == 'yo':
-                    login(request, usuario)
-                    return redirect("panels/")
+                if usuario.username == 'elena2': # aqui defino el rol de secretaria, si el usario es rebeca.
+                    login(request, usuario) #logea a Rebeca
+                    return redirect("panels/") # y la redirecciona al panel de secretaria
+
                 login(request, usuario)
                 return redirect("panel/")
             else:

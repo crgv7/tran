@@ -12,7 +12,9 @@ tipo_reservacion=[
 
 
 class Tarifa(models.Model):
-    tipo_reservacion=models.CharField(max_length=15, choices=tipo_reservacion, default="mantenimiento")
+    tipo_reservacion=models.CharField(max_length=15, choices=tipo_reservacion)
     modelo=models.CharField(max_length=15)
-    cantidad_km=models.IntegerField()
+    cantidad_km=models.IntegerField(null=True)
+    cantidad_pasajeros=models.IntegerField(null=True)
+    cantidad_peso=models.IntegerField(null=True)
     costo=models.IntegerField()

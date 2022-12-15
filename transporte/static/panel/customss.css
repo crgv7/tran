@@ -33,3 +33,7 @@
 .footers{
   background-color: #e65ac7;
 }
+
+.not-visible {
+  visibility: hidden;
+}
