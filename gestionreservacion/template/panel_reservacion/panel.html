@@ -1,26 +1,15 @@
-
 {% extends "transporte/template/base/base.html" %}  <!-- hereda de la plantilla base -->
-
-    {% load static %}  <!-- Carga los css y los JavaScript de la carpeta static -->
+{% load static %}  <!-- Carga los css y los JavaScript de la carpeta static -->
 {% block title %} Panel {% endblock %}
-
-
-
 {% block content %}
    <!– panel –>
 
-        <div class="container rounded-3 shadow border-dark colorprincipal">
-      <div>
-
-    <div class="row  text-center  m-4 ">
-        <h4 class="mt-4">Reservaciones</h4>
-      </div>
+  <div class="container rounded-3 shadow border-dark colorprincipal">
+  <div>
+  <div class="row  text-center  m-4 "><h4 class="mt-4">Reservaciones</h4></div>
     <div class="row mt-5">
        <div class="col-6 d-flex ">
-        <div class=" m-1 w-25 d-flex justify-content-end">
-          <p>Buscar</p>
-        </div>
-
+        <div class=" m-1 w-25 d-flex justify-content-end"><p>Buscar</p></div>
     <div class="">
       <div class="mb-3">
         <input type="text"
@@ -28,17 +17,12 @@
       </div>
     </div>
         <div class=" m-1 w-25">
-
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-search w-50 " viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
-
         </div>
 
-
-
        </div>
-
        <div class="col-6 d-flex justify-content-end">
         <div class="w-25  d-flex justify-content-center">
         <a href="panel/add_reservacion/">
@@ -47,13 +31,9 @@
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
           </svg>
         </a>
-
         </div>
-
        </div>
-
     </div>
-
 </div>
 
 <!– Tabla –>
@@ -68,12 +48,10 @@
         <th scope="col">Tipo</th>
         <th scope="col">Vehiculo</th>
         <th scope="col">Costo</th>
-
       </tr>
     </thead>
     <tbody>
-       {%for reserv in reservaciones %}  <!-- en esta linea se accede al objeto reservaciones que se manda desde la vista,
-                                          mediante el for se guarda en una variable reserv cada obejeto -->
+       {%for reserv in reservaciones %}  <!-- en esta linea se accede al objeto reservaciones que se manda desde la vista,                                          mediante el for se guarda en una variable reserv cada obejeto -->
        <tr>
        <td>{{reserv.nombre}}</td>     <!--  se accede al atributo nombre de la variable reserv, para mostrar el nombre en la fila de la tabla      -->
        <td>{{reserv.apellido}}</td>
@@ -96,7 +74,7 @@
   </table>
   <!– end tabla –>
 
-</div></div></div>
+</div></div>
 
 
 

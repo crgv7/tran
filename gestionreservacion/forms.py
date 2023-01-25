@@ -26,9 +26,9 @@ class reservacionform(forms.ModelForm):
 
         ]
         widgets={
-            "nombre": forms.TextInput(attrs={"class": "form-input", "id":"name"}),
-            "apellido": forms.TextInput(attrs={"class": "form-input","Placeholder": "Correo", "id":"correo"}),
-            "telefono": forms.TextInput(attrs={"class": "form-input","Placeholder": "Contraseña", "id":"password"}),
+            "nombre": forms.TextInput(attrs={"class": "form-input", "id":"Nombre"}),
+            "apellido": forms.TextInput(attrs={"class": "form-input","Placeholder": "Apellidos", "id":"correo"}),
+            "telefono": forms.TextInput(attrs={"class": "form-input","Placeholder": "Telefono", "id":"password"}),
             #"dia": forms.NumberInput(attrs={"class": "","Placeholder": "1", "id":"rpasswd", "max_value":"31", "initial":"19"}),
             "tipo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle", "id":"passwd"}),
             "vehiculo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle d-flex w-100 ps-4 pe-4","Placeholder": "Contraseña", "id":"rpassword"}),

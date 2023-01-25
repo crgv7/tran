@@ -40,7 +40,6 @@ INSTALLED_APPS = [ # instala las aplicaciones
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestionreservacion',
-    'registrarusuario',
     'gestionvehiculo',
     'crispy_forms',
     'gestionitinerario',
@@ -63,7 +62,7 @@ ROOT_URLCONF = 'transporte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/cg/Desktop/tran/'], # ruta de los templates
+        'DIRS': [os.path.join(BASE_DIR, ''),], # ruta de los templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,8 +86,8 @@ DATABASES = { # configura\cion de la base de datos
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gestionreservacion',
         'USER':  'postgres',
-        'PASSWORD': '123',
-        'HOST': '127.0.0.1',
+        'PASSWORD': '12345678',
+        'HOST': '127.0.0.1',    
         'DATABASES_PORT': '5432',
     }
 }
@@ -148,3 +147,4 @@ MEDIA_URL="/media/" #accde a los archivos media (fotos, videos)
 MEDIA_ROOT=os.path.join(BASE_DIR, "media")
 CRISPY_TEMPLATE_PACK="bootstrap5" # Coge los estilos de bootstrap5
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # Coge los estilos de bootstrap5
+LOGIN_URL="/"

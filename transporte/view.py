@@ -2,17 +2,12 @@
 from django.shortcuts import render, redirect  # metodo para simplificar el codigo y cargar las vistas
 
 from django.template.loader import get_template # para cargar plantillas
-
-
-from registrarusuario.models import registrar
-from registrarusuario.forms import Registrarform
-
-
 from django.forms import ValidationError
 from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -20,11 +15,12 @@ user=""
 
 
 class Vregistro(View):
-
     def get(self, request):
+    
         form=UserCreationForm()
         return render(request,"transporte/template/registrar/index.html", {"form":form})
     def post(self, request):
+        print("hizo post")
         global usuario
         form=UserCreationForm(request.POST)
         if form.is_valid():
@@ -37,12 +33,9 @@ class Vregistro(View):
             return render(request,"transporte/template/registrar/index.html", {"form":form})
 def cerrar_sesion(request):
     logout(request)
-    return redirect("login/")
-
-
+    return redirect("/")
 
 def autenticar (request):
-
     if request.method=="POST":
         form=AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -51,10 +44,9 @@ def autenticar (request):
             global usuario
             usuario=authenticate(username=nombre_user, password=contra)
             if usuario is not None:
-                if usuario.username == 'elena2': # aqui defino el rol de secretaria, si el usario es rebeca.
-                    login(request, usuario) #logea a Rebeca
+                if usuario.username == 'secre': # aqui defino el rol de secretaria, si el usario es secre.
+                    login(request, usuario) #logea a secre
                     return redirect("panels/") # y la redirecciona al panel de secretaria
-
                 login(request, usuario)
                 return redirect("panel/")
             else:
@@ -70,10 +62,7 @@ def users():# funcion para pasar el usuario para el gestionreservacion
     user=usuario.username
     return user
 
-
-
-
 #-----------------------------------------------------------------------------
-
+@login_required
 def panel_secretaria(request):
     return render(request, "transporte/template/panel_secretaria/index.html")

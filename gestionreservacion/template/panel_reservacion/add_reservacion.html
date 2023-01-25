@@ -1,19 +1,16 @@
-<!DOCTYPE>
-<html>
+
 {% extends "transporte/template/base/base.html" %} <!-- hernecia de platillas hereda de la plantilla base-->
-<head>
+
     {% load static %} <!-- Carga los archivos staticos-->
     {% load crispy_forms_tags %} <!-- carga el crispy form -->
     {% block title %} Add_reservacion {% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
-</head>
+
 
   {% block content %}
     <form method="post" name="formulario">{% csrf_token %}
     <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
      <div class="row">
-            <div class="row text-center"><h5>Crear reservacion</h5></div>
+            <div class="row text-center pt-3"><h5>Crear reservacion</h5></div>
             <form>
                 <div class="row">
                     <div class="col-6">
@@ -82,12 +79,4 @@
     </div>
   </form>
 
-
-
-
-
-
-    <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'panel/js/custom.js' %}"></script>
 {% endblock %}
-</html>

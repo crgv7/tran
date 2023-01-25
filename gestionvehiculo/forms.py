@@ -1,25 +1,14 @@
 from django import forms
 from .models import Vehiculo
 
-
-
-
-
-
 #formulario
-
 class vehiculoform(forms.ModelForm):
-   # repeat_password=forms.CharField(widget=forms.TextInput(attrs={"class": "form-input","Placeholder": "Repetir contraseña", "id":"rpassword", "name":"rpassword"}))
-
-
     class Meta:
         model=Vehiculo
         fields=[
             "Matricula",
             "Modelo",
             "vehiculo"
-
-
         ]
         widgets={
             "Matricula": forms.TextInput(attrs={"class": "form-input", "id":"name"}),

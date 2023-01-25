@@ -2,14 +2,17 @@
 from django.shortcuts import render,redirect
 from gestiontarifa.models import Tarifa
 from gestiontarifa.forms import tarifaform
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+@login_required
 def panel_tarifa(request):
         tarifass=Tarifa.objects.all().filter()
         return render(request, "gestiontarifa/template/panel_tarifa/panel.html", {"tarifass": tarifass})
 
 
 
-
+@login_required
 def add_tarifa(request):
     context={}
 
@@ -45,7 +48,7 @@ def add_tarifa(request):
     context["form"]=form
     return render(request, "gestiontarifa/template/panel_tarifa/add_tarifa.html",{"form":form})
 
-
+@login_required
 def eliminar(request, id):
     print("ente")
     tarifass=Tarifa.objects.all().filter()
@@ -56,7 +59,7 @@ def eliminar(request, id):
 
 
 
-
+@login_required
 def editar(request, id):# me qude aqui en editar
     #    reservaciones=Reservacion.objects.all().filter(nombre=usuario)
     tarifass=Tarifa.objects.get(id=id)
