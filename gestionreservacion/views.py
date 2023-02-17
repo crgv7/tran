@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from gestionreservacion.models import Reservacion   #importa el modelo del models.py
 from gestionreservacion.forms import reservacionform # importa el formulario  del archivo form
-from transporte.view import users     # importar la variable user pq se va utilizar en esta vista
 from django.contrib.auth.decorators import login_required
 from gestionvehiculo.models import Vehiculo
 from django.contrib import messages
@@ -30,12 +29,13 @@ def add_reservacion(request):
             print("hize post")
            
         #    form.vehiculo=vehiculo.get()
+            print(form)
             if form.is_valid():                                  # validacion del formula
                 nombre=form.cleaned_data.get("nombre")
                 apellido=form.cleaned_data.get("apellido")
                 telefono=form.cleaned_data.get("telefono")
-                dia=form.cleaned_data.get("dia")
-                mes=form.cleaned_data.get("mes")
+                fecha=form.cleaned_data.get("fecha")
+            
                 tipo=form.cleaned_data.get("tipo")
                 vehiculo=form.cleaned_data.get("vehiculo")
                 costo=form.cleaned_data.get("costo")
@@ -44,8 +44,7 @@ def add_reservacion(request):
                     nombre=nombre,
                     apellido=apellido,
                     telefono=telefono,
-                    dia=dia,
-                    mes=mes,
+                    fecha=fecha,
                     tipo=tipo,
                     vehiculo=vehiculo,
                    costo=costo,
@@ -65,7 +64,7 @@ def add_reservacion(request):
         return render(request, "gestionreservacion/template/panel_reservacion/add_reservacion.html", context)
 @login_required
 def eliminar(request, id): # eliminar obejeto
-    reservaciones=Reservacion.objects.all().filter(nombre=users())
+    reservaciones=Reservacion.objects.all().filter(user=request.user)
     reserv=Reservacion.objects.get(id=id)
     reserv.delete()
     return redirect("/panel/")

@@ -8,6 +8,9 @@ from django.contrib.auth import login,logout,authenticate
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from gestionvehiculo.models import Vehiculo
+from django.contrib.auth.models import Group
+from django.contrib.contenttypes.models import ContentType
 
 
 
@@ -26,6 +29,13 @@ class Vregistro(View):
         if form.is_valid():
             usuario=form.save()
             login(request, usuario)
+            group=Group.objects.get(
+                name="clientes"
+            )
+            usuario.groups.add(group)
+            
+            
+            
             return redirect("/panel/")
         else:
             for msg in form.error_messages:
@@ -57,10 +67,6 @@ def autenticar (request):
     form=AuthenticationForm()
     return render(request, "transporte/template/Login_v2/index.html",{"form":form})
 
-def users():# funcion para pasar el usuario para el gestionreservacion
-    global usuario
-    user=usuario.username
-    return user
 
 #-----------------------------------------------------------------------------
 @login_required

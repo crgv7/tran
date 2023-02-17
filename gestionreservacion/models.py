@@ -20,9 +20,9 @@ class Reservacion(models.Model):
     nombre=models.CharField(max_length=15)
     apellido=models.CharField(max_length=15)
     telefono=models.CharField(max_length=8)
-    dia=models.IntegerField()
-    mes=models.IntegerField()
+    fecha=models.DateField(auto_now=False, auto_now_add=False)
+    
     tipo=models.CharField(max_length=14,choices=tipo, default="carga")
-    costo=models.IntegerField()
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     vehiculo=models.OneToOneField(Vehiculo, on_delete=models.CASCADE, null=False, blank=False)
+    

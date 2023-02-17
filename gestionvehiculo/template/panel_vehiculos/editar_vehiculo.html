@@ -1,49 +1,50 @@
-   {% extends "transporte/template/base/base.html" %}
-    {% load static %}
-    {% load crispy_forms_tags %}
+{% extends "transporte/template/base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Crear Vehiculo{% endblock %}
 
-    {% block title %} Editar Vehiculo {% endblock %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
-     <div class="row">
-            <div class="row text-center"><h5>Editar Vehículo</h5></div>
-            <form>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="mb-3">
-                              {{form.Matricula|as_crispy_field}}
-                          </div>
-                          <div class="mb-3">
-                            {{form.Modelo |as_crispy_field}}
-                          </div>
-
-                          <div class="mb-3">
-                              {{form.vehiculo |as_crispy_field}}
-                          </div>
-                    </div>
-
-                    </div>
-              </form>
-
-              <div class="container p-4">
-                <div class="row d-flex justify-content-end mt-4">
-
-                <a href="/panels/panelv/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
-                <button type="submit" class="btn btn-primary m-2 w-25">Actualizar</button>
+<form method="post">{% csrf_token %}
+<div class=" container mt-4 rounded-3 shadow border-dark colorprincipal w-50" id="contenedor">
+ <div class="row">
+        <div class="row text-center"><h5>Editar Vehículo</h5></div>
+        <form>
+            <div class="row container-sm d-inline-block w-50" id="principal">           
+                          {{form.Matricula|as_crispy_field}}
+                          {{form.Modelo |as_crispy_field}}
+                          {{form.vehiculo |as_crispy_field}}
                 </div>
+          </form>
+
+     
+          <div class="container p-4">
+            <div class="row">
+            <div class="col-md  d-flex justify-content-end">
+
+          </div>
+          <div class="col-xl">
+            <div class="row">
+              <div class="col">    
+                <a href="/panels/panelt/" type="button" class="btn btn-light m-2 w-100 ">Cancelar</a>
+               
+                   </div>
 
 
-              </div>
-
-
-
-
+                   <div class="col">
+                    <button type="submit" class="btn btn-primary m-2 w-100">Actualizar</button>
+                  </div>
+            </div>          
+         </div>      
         </div>
-    </div>
-  </form>
+          </div>
 
+
+
+
+    </div>
+</div>
+</form>
 
 
 {% endblock %}

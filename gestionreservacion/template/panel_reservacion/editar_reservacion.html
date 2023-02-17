@@ -6,15 +6,15 @@
     {% block title %} Editar_reservacion {% endblock %}
 
   {% block content %}
-    <form method="post">{% csrf_token %}
-    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal">
+  <form method="post" name="formulario">{% csrf_token %}
+    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal" id="contenedor">
      <div class="row">
-            <div class="row text-center pt-3"><h5>Editar reservacion</h5></div>
-            <form>
+            <div class="row text-center pt-3"><h5>Crear reservacion</h5></div>
+     
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-sm">
                         <div class="mb-3">
-                              {{form.nombre|as_crispy_field}}
+                              {{form.nombre|as_crispy_field}}  <!--  se llama el campo nombre en el form (formulario)  Crispy para dar mejor estilo a los form-->
                           </div>
                           <div class="mb-3">
                             {{form.apellido |as_crispy_field}}
@@ -28,65 +28,69 @@
                               {{form.tipo |as_crispy_field}}
                           </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-sm">
                         <div class="row text-center"><label>Fecha</label></div>
-                        <div class="row mt-3">
-                          <div class=" container col-6 d-flex justify-content-end">
-
-                             <div class="w-25">
-
-                            {{form.dia |as_crispy_field}}
+                        <div class="row mt-3 d-flex justify-content-center">
+                          <div class="input-group date w-50" id="datetimepicker1" data-target-input="nearest">
+                            {{ form.fecha }}
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                           </div>
-                          <div class="col-6 d-flex justify-content-start">
+                          
+                          <script>
+                            $(function () {
+                              $("#datetimepicker1").datetimepicker({
+                                format: 'DD/MM/YYYY HH:mm',
+                              });
+                            });
+                          </script>
+                        
 
-                            <div class="w-25">
 
-                            {{form.mes |as_crispy_field}}
-                            </div>
-                          </div>
                         </div>
-                        <div class=" container row mt-5">
+                        <div class=" row mt-5 ms-1">
                           <div class="d-flex justify-content-center">
                               <span class= "">{{form.vehiculo |as_crispy_field}}</span>
 
                           </div>
                         </div>
 
-                        <div class="container d-flex justify-content-center">
-                          <span class="ms-5 mt-2">{{form.costo |as_crispy_field}}</span>
-
-                        </div>
+              
                        </div>
                     </div>
-
+       
                     {% if messages %}
 
                     {% for mensaje in messages %}
-
+                    
                     <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
-
+                    
                     {% endfor%}
-
+                    
                     {% endif %}
 
 
-              
-
-
-
-
-                    </div>
-              </form>
 
               <div class="container p-4">
-                <div class="row d-flex justify-content-end mt-4">
+                <div class="row">
+                <div class="col-md  d-flex justify-content-end">
 
-                <a  href="/panel/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
-                <button type="submit" class="btn btn-primary m-2 w-25">Actualizar</button>
-                </div>
+              </div>
+              <div class="col-xl">
+                <div class="row">
+                  <div class="col">    
+                    <a href="/panel/" type="button" class="btn btn-light m-2 w-100 ">Cancelar</a>
+                   
+                       </div>
 
 
+                       <div class="col">
+                        <button type="submit" class="btn btn-primary m-2 w-100">Guardar</button>
+                      </div>
+                </div>          
+             </div>      
+            </div>
               </div>
 
 
@@ -95,9 +99,6 @@
         </div>
     </div>
   </form>
-
-
-
-    <script src="{% static 'panel/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'panel/js/custom.js' %}"></script>
 {% endblock %}
+
+

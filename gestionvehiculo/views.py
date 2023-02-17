@@ -2,12 +2,16 @@ from django.shortcuts import render,redirect
 from gestionvehiculo.models import Vehiculo
 from gestionvehiculo.forms import vehiculoform
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 @login_required
+@staff_member_required( login_url = '/' )
 def panel_vehiculo(request):
+        
         vehiculoss=Vehiculo.objects.all().filter()
         return render(request, "gestionvehiculo/template/panel_vehiculos/panel.html", {"vehiculoss": vehiculoss})
 @login_required
+@staff_member_required( login_url = '/' )
 def add_vehiculo(request):
     context={}
     if request.method == "POST":
@@ -29,6 +33,7 @@ def add_vehiculo(request):
     return render(request, "gestionvehiculo/template/panel_vehiculos/add_vehiculo.html",{"form":form})
 
 @login_required
+@staff_member_required( login_url = '/' )
 def eliminar(request, id):
     print("ente")
     vehiculoss=Vehiculo.objects.all().filter()
@@ -39,6 +44,7 @@ def eliminar(request, id):
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def editar(request, id):# me qude aqui en editar
     #    reservaciones=Reservacion.objects.all().filter(nombre=usuario)
     vehi=Vehiculo.objects.get(id=id)

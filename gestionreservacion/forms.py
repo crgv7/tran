@@ -1,5 +1,6 @@
 from django import forms
 from .models import Reservacion
+import re
 
 
 
@@ -9,8 +10,12 @@ from .models import Reservacion
 #formulario
 
 class reservacionform(forms.ModelForm):
-    dia=forms.IntegerField(initial=1,max_value=31,min_value=1,disabled=False)
-    mes=forms.IntegerField(initial=1,max_value=12,min_value=1,disabled=False)
+    fecha = forms.DateTimeField(
+        input_formats=['%d/%m/%Y %H:%M'],
+        widget=forms.DateTimeInput(attrs={
+            'class': 'form-control datetimepicker-input',
+            'data-target': '#datetimepicker1'
+        }))
 
     class Meta:
         model=Reservacion
@@ -18,20 +23,53 @@ class reservacionform(forms.ModelForm):
             "nombre",
             "apellido",
             "telefono",
-            "dia",
-            "mes",
+            "fecha",
             "tipo",
             "vehiculo",
-            "costo"
+          
 
         ]
         widgets={
-            "nombre": forms.TextInput(attrs={"class": "form-input", "id":"Nombre"}),
-            "apellido": forms.TextInput(attrs={"class": "form-input","Placeholder": "Apellidos", "id":"correo"}),
-            "telefono": forms.TextInput(attrs={"class": "form-input","Placeholder": "Telefono", "id":"password"}),
+            "nombre": forms.TextInput(attrs={"class": "form-input", "Placeholder": "Nombre", "id":"Nombre"}),
+            "apellido": forms.TextInput(attrs={"class": "form-input","Placeholder": "Apellidos", "id":"apellido"}),
+            "telefono": forms.TextInput(attrs={"class": "form-input","Placeholder": "Telefono", "id":"telefono"}),
             #"dia": forms.NumberInput(attrs={"class": "","Placeholder": "1", "id":"rpasswd", "max_value":"31", "initial":"19"}),
             "tipo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle", "id":"passwd"}),
             "vehiculo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle d-flex w-100 ps-4 pe-4","Placeholder": "Contraseña", "id":"rpassword"}),
-            "costo": forms.TextInput(attrs={"class": "form-input w-50","Placeholder": "costo", "id":"rpassword"}),
+           
 
         }
+        
+        
+  
+        
+    def clean_telefono(self):
+        telefono = self.cleaned_data.get('telefono')
+        if re.search(r'[a-z A-Z \W]', telefono) is not None:
+            raise forms.ValidationError("Este numero no es valido")
+        
+        if len(telefono)<7:
+            raise forms.ValidationError("Este numero no es valido")
+        
+        if re.search(r'^59|^50|^55|^53', telefono) is None:    
+            raise forms.ValidationError("Este numero no es valido")
+
+         # TODO Validation
+    
+        return telefono 
+        
+    def clean_nombre(self):
+        nombre = self.cleaned_data.get('nombre')
+        
+        if re.search(r'\d', nombre) is not None:
+             raise forms.ValidationError("Este nombre no es valido") 
+        elif re.search(r'\s', nombre) is not None: 
+            raise forms.ValidationError("Este nombre no es valido") 
+            # end if
+            
+        
+             # TODO Validation
+        
+        return nombre
+           
+       

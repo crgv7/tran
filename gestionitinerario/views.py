@@ -5,16 +5,19 @@ from django.shortcuts import render,redirect
 from gestionitinerario.models import Itinerario
 from gestionitinerario.forms import itinerarioform
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def panel_itinerario(request):
         itinerario=Itinerario.objects.all().filter()
         return render(request, "gestionitinerario/template/panel_itinerario/panel.html", {"itinerario": itinerario})
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def add_itinerario(request):
     context={}
     if request.method == "POST":
@@ -39,6 +42,7 @@ def add_itinerario(request):
     return render(request, "gestionitinerario/template/panel_itinerario/add_itinerario.html",{"form":form})
 
 @login_required
+@staff_member_required( login_url = '/' )
 def eliminar(request, id):
     print("ente")
     itinerario=Itinerario.objects.all().filter()
@@ -50,6 +54,7 @@ def eliminar(request, id):
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def editar(request, id):# me qude aqui en editar
     #    reservaciones=Reservacion.objects.all().filter(nombre=usuario)
     itinerario=Itinerario.objects.get(id=id)

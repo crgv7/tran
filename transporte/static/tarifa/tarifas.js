@@ -5,13 +5,22 @@ function pasajes(cargas){
     
     if(cargas==true){
       console.log("entre al if")
-      document.getElementById("peso").remove();
+      document.getElementById("carga").remove();
+      document.getElementById("lbcarga").remove();
     }
+
+    var element=document.getElementById("id_cantidad_km").cloneNode(true)
+    var element2=document.createElement("label")
+    element2.setAttribute("id","lbpasajero")
+    element2.innerText="Pasajeros"
+    
+    element.setAttribute("id","pasajeros")
+    element.setAttribute("name", "cantidad_pasajeros")
+
+
     var padre=document.getElementById("opcion")
-    var hijo=document.getElementById("pasajeros")
-    hijo.removeAttribute('class')
-    hijo.setAttribute('class', 'mb-3')
-    padre.appendChild(hijo)
+    padre.appendChild(element2)
+    padre.appendChild(element)
     pasaje=true
     cargas=false
   
@@ -25,12 +34,22 @@ function carga(pasaje){
   if(pasaje==true){
     console.log("entre al if")
     document.getElementById("pasajeros").remove();
+    document.getElementById("lbpasajero").remove();
   }
+  var element=document.getElementById("id_cantidad_km").cloneNode(true)
+  var element2=document.createElement("label")
+  element2.innerText="Peso"
+  element2.setAttribute("id","lbcarga")
+
+  element.setAttribute("id", "carga")
+  element.setAttribute("name", "cantidad_peso")
+
+
+
+
   var padre=document.getElementById("opcion")
-  var hijo=document.getElementById("peso")
-  hijo.removeAttribute('class')
-  hijo.setAttribute('class', 'mb-3')
-  padre.appendChild(hijo)
+  padre.appendChild(element2)
+  padre.appendChild(element)
   pasaje=false
   cargas=true
 }

@@ -3,9 +3,11 @@ from django.shortcuts import render,redirect
 from gestiontarifa.models import Tarifa
 from gestiontarifa.forms import tarifaform
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 
 @login_required
+@staff_member_required( login_url = '/' )
 def panel_tarifa(request):
         tarifass=Tarifa.objects.all().filter()
         return render(request, "gestiontarifa/template/panel_tarifa/panel.html", {"tarifass": tarifass})
@@ -13,42 +15,47 @@ def panel_tarifa(request):
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def add_tarifa(request):
     context={}
-
+    
     if request.method == "POST":
         form=tarifaform(request.POST)
         print("entre al post")
-
-
+        print(request.POST)
+        print(form)
         if form.is_valid():
             print("entre al if")                          # validacion del formula
             tipo_reservacion=form.cleaned_data.get("tipo_reservacion")
 
             modelo=form.cleaned_data.get("modelo")
             cantidad_km=form.cleaned_data.get("cantidad_km")
-            cantidad_pasajeros=form.cleaned_data.get("cantidad_pasajeros")
             cantidad_peso=form.cleaned_data.get("cantidad_peso")
+            cantidad_pasajeros=form.cleaned_data.get("cantidad_pasajeros")
+         
 
 
             reg=Tarifa.objects.create(
                 tipo_reservacion=tipo_reservacion,
                 modelo=modelo,
                 cantidad_km=cantidad_km,
-                cantidad_pasajeros=cantidad_pasajeros,
                 cantidad_peso=cantidad_peso,
+                cantidad_pasajeros=cantidad_pasajeros,
+         
                 costo=costo(cantidad_km)
             )
             reg.save()
 # si no es post muestra el formulario
 
     form=tarifaform(initial={'cantidad_km': '0'})
+   
 
 
     context["form"]=form
     return render(request, "gestiontarifa/template/panel_tarifa/add_tarifa.html",{"form":form})
 
 @login_required
+@staff_member_required( login_url = '/' )
 def eliminar(request, id):
     print("ente")
     tarifass=Tarifa.objects.all().filter()
@@ -60,6 +67,7 @@ def eliminar(request, id):
 
 
 @login_required
+@staff_member_required( login_url = '/' )
 def editar(request, id):# me qude aqui en editar
     #    reservaciones=Reservacion.objects.all().filter(nombre=usuario)
     tarifass=Tarifa.objects.get(id=id)
@@ -78,12 +86,17 @@ def editar(request, id):# me qude aqui en editar
             tipo_reservacion=form.cleaned_data.get("tipo_reservacion")
             modelo=form.cleaned_data.get("modelo")
             cantidad_km=form.cleaned_data.get("cantidad_km")
+            cantidad_peso=form.cleaned_data.get("cantidad_peso")
+            cantidad_pasajeros=form.cleaned_data.get("cantidad_pasajeros")
+         
 
 
             tarifass.tipo_reservacion=tipo_reservacion
             tarifass.modelo=modelo
             tarifass.cantidad_km=cantidad_km
             tarifass.costo=costo(cantidad_km)
+            tarifass.cantidad_peso=cantidad_peso
+            tarifass.cantidad_pasajeros=cantidad_pasajeros
 
             tarifass.save()
             return redirect('/panels/panelt/')

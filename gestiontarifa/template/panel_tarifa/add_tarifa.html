@@ -7,42 +7,54 @@
 
     {% block content %}
     <form method="post">{% csrf_token %}
-    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal w-50">
+    <div class=" container-sm mt-4 rounded-3 shadow border-dark colorprincipal w-50" id="contenedor">
      <div class="row">
             <div class="row text-center pt-3"><h5>Crear Tarifa</h5></div>
-            <form>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="mb-3 w-50">
+            
+                <div class="row container-sm d-inline-block w-50" id="principal">
+                   
+                      
                               {{form.tipo_reservacion|as_crispy_field}}
-                          </div>
-                          <div class="mb-3 w-50">
+                       
+                          
                             {{form.modelo |as_crispy_field}}
 
 
-                          </div>
-                          <div id="opcion" class="mb-3 w-50">
-                           
-                          </div>
-
-                           <span class="not-visible" id="kilo">{{form.cantidad_km |as_crispy_field}}</span>
-                           <span  class="not-visible" id="pasajeros">{{form.cantidad_pasajeros |as_crispy_field}}</span>
-                           <span  class="not-visible" id="peso">{{form.cantidad_peso |as_crispy_field}}</span>
-                          
+                       
                         
-                    </div>
+                            {{form.cantidad_km |as_crispy_field}}
+
+                            <div  class="" id="opcion"></div>
+
+
+                          
+
+                          
+                         
+                 
 
                     </div>
-              </form>
+              
 
               <div class="container p-4">
-                <div class="row d-flex justify-content-end mt-4">
+                <div class="row">
+                <div class="col-md  d-flex justify-content-end">
 
-                <a href="/panels/panelt/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
-                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button>
-                </div>
+              </div>
+              <div class="col-xl">
+                <div class="row">
+                  <div class="col">    
+                    <a href="/panels/panelt/" type="button" class="btn btn-light m-2 w-100 ">Cancelar</a>
+                   
+                       </div>
 
 
+                       <div class="col">
+                        <button type="submit" class="btn btn-primary m-2 w-100">Guardar</button>
+                      </div>
+                </div>          
+             </div>      
+            </div>
               </div>
 
 
