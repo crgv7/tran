@@ -1,3 +1,3 @@
-pip install django-crispy-forms
-pip install crispy-bootstrap5
-pip install psycopg2
+django-crispy-forms
+crispy-bootstrap5
+psycopg2
