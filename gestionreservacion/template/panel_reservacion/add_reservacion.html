@@ -8,7 +8,7 @@
 
   {% block content %}
     <form method="post" name="formulario">{% csrf_token %}
-    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal" id="contenedor">
+    <div class=" container mt-4 rounded-3 shadow border-dark colorprincipal" id="contenedor" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true">
      <div class="row">
             <div class="row text-center pt-3"><h5>Crear reservacion</h5></div>
             <form>
@@ -89,5 +89,5 @@
         </div>
     </div>
   </form>
-
+ <!-- <script src="{% static 'tarifa/tarifas.js' %}"></script>-->
 {% endblock %}

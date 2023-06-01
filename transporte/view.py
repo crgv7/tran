@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from gestionvehiculo.models import Vehiculo
 from django.contrib.auth.models import Group
 from django.contrib.contenttypes.models import ContentType
+from gestionreservacion.models import Reservacion 
 
 
 
@@ -23,7 +24,6 @@ class Vregistro(View):
         form=UserCreationForm()
         return render(request,"transporte/template/registrar/index.html", {"form":form})
     def post(self, request):
-        print("hizo post")
         global usuario
         form=UserCreationForm(request.POST)
         if form.is_valid():
@@ -54,7 +54,7 @@ def autenticar (request):
             global usuario
             usuario=authenticate(username=nombre_user, password=contra)
             if usuario is not None:
-                if usuario.username == 'secre': # aqui defino el rol de secretaria, si el usario es secre.
+                if usuario.username == 'alexagtcs': # aqui defino el rol de secretaria, si el usario es secre.
                     login(request, usuario) #logea a secre
                     return redirect("panels/") # y la redirecciona al panel de secretaria
                 login(request, usuario)
@@ -72,3 +72,9 @@ def autenticar (request):
 @login_required
 def panel_secretaria(request):
     return render(request, "transporte/template/panel_secretaria/index.html")
+
+@login_required
+def ver_reserv(request):
+    reservaciones=Reservacion.objects.all()
+    return render(request, "transporte/template/panel_secretaria/verreservacion.html",  {"reservaciones":reservaciones})
+

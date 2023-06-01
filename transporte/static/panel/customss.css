@@ -1,8 +1,13 @@
 .colorprincipal{
-  background: rgb(218,215,215);
-  background: linear-gradient(69deg, rgba(252,248,248,100) 15%, rgba(218,215,215,1) 33%, rgba(179,179,183,1) 62%, rgba(130,132,132,1) 87%);
+  background: hsla(186, 66%, 40%, 1);
 
-
+  background: linear-gradient(90deg, hsla(186, 66%, 40%, 1) 0%, hsla(188, 78%, 69%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(186, 66%, 40%, 1) 0%, hsla(188, 78%, 69%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(186, 66%, 40%, 1) 0%, hsla(188, 78%, 69%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#239EAB", endColorstr="#74DEEE", GradientType=1 );
 }
 
 .textbuscar{

@@ -38,7 +38,7 @@ def add_reservacion(request):
             
                 tipo=form.cleaned_data.get("tipo")
                 vehiculo=form.cleaned_data.get("vehiculo")
-                costo=form.cleaned_data.get("costo")
+               # costo=form.cleaned_data.get("costo")
                 
                 reg=Reservacion.objects.create( #crea objetos en la tabla
                     nombre=nombre,
@@ -47,7 +47,7 @@ def add_reservacion(request):
                     fecha=fecha,
                     tipo=tipo,
                     vehiculo=vehiculo,
-                   costo=costo,
+                 #  costo=costo,
                    user=request.user
                 )
                 reg.save()
@@ -80,10 +80,9 @@ def editar(request, id): # editar reservacion
                                   'apellido': reserv.apellido,
                                   'telefono': reserv.telefono,
                                   'tipo': reserv.tipo,
-                                  'dia': reserv.dia,
-                                  'mes': reserv.mes,
+                                  'fecha':reserv.fecha,
                                   'vehiculo': reserv.vehiculo,
-                                  'costo': reserv.costo})
+                                 })
     context["form"]=form
 
     if request.method == "POST":
@@ -96,21 +95,19 @@ def editar(request, id): # editar reservacion
             nombre=form.cleaned_data.get("nombre")
             apellido=form.cleaned_data.get("apellido")
             telefono=form.cleaned_data.get("telefono")
-            dia=form.cleaned_data.get("dia")
-            mes=form.cleaned_data.get("mes")
+            fecha=form.cleaned_data.get("fecha")
             tipo=form.cleaned_data.get("tipo")
             vehiculo=form.cleaned_data.get("vehiculo")
-            costo=form.cleaned_data.get("costo")
+            
             
             
             reserv.nombre=nombre
             reserv.apellido=apellido
             reserv.telefono=telefono
-            reserv.dia=dia
-            reserv.mes=mes
+            reserv.fecha=fecha
             reserv.tipo=tipo
             reserv.vehiculo=vehiculo
-            reserv.costo=costo
+            #reserv.costo=costo
             reserv.user=request.user
             reserv.full_clean()
             reserv.save()

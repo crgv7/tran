@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from transporte.view import autenticar,panel_secretaria
-from .view import Vregistro, cerrar_sesion
+from .view import Vregistro, cerrar_sesion, ver_reserv
 
 
 urlpatterns = [
@@ -28,8 +28,9 @@ urlpatterns = [
     path('panels/panelv/', include('gestionvehiculo.urls')),
     path('panels/paneli/', include('gestionitinerario.urls')),
     path('panels/panelt/', include('gestiontarifa.urls')),
+    path('panels/verreserv/', ver_reserv),
 #-----------------------------------------------------------------------
-
+    
     path("", autenticar),
     path('registrar/',Vregistro.as_view()),
     path("logout/", cerrar_sesion,name="cerrar_sesion"),

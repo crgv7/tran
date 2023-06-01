@@ -1,7 +1,5 @@
 
-  input:invalid:required {
-    border-color: red;
-  }
+
 
   input:valid {
     border: 1px solid #000000;
@@ -11,4 +9,10 @@
     color: red;
     text-decoration-color: red;
   }
+
+
+  
+ #hint_id_username, #hint_id_password1 {
+         display: none;
+     }
   

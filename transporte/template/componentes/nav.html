@@ -1,8 +1,14 @@
 <nav class="navbar colorprincipal shadow border-dark">
     <div class="container-fluid position-relative">
-      {% if user.username == 'yo' %}
-      <a class="navbar-brand align-text-center d-inline" href="{% url 'panels' %}">
-        <img src="\media\logo.png" alt="Logo" class="w-25 pe-3">Inicio</a>
+      {% if user.username == 'secre' %}
+      <div class="w-25">
+         <img src="\media\logo.png" alt="Logo" class="w-25 pe-3">
+         <a class="navbar-brand align-text-center d-inline" href="{% url 'panels' %}">Inicio</a>
+      
+      
+      </div>
+     
+       
      {% else %}
 
      <a class="navbar-brand" href="#">

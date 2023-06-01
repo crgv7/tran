@@ -17,15 +17,16 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{% static 'registrar/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'registrar/css/customs.css' %}">
+    <link rel="stylesheet" href="{% static 'aos/aos.css' %}" />
 </head>
-<body>
+<body class="bg-info">
 
-    <div class="main">
+    <div class="main" >
 
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
-                <div class="signup-content">
+                <div class="signup-content" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true" >
                     <form method="post" id="signup-form" class="signup-form">{% csrf_token %}
                         <h2 class="form-title">Crear Cuenta</h2>
                         <div class="form-group">
@@ -53,17 +54,21 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Ya tengo cuenta ? <a href="/login" class="loginhere-link">  Autenticar aqui</a>
+                        Ya tengo cuenta ? <a href="/" class="loginhere-link">  Autenticar aqui</a>
                     </p>
                 </div>
             </div>
         </section>
 
     </div>
-
+    
     <!-- JS -->
     <script src="{% static 'registrar/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'registrar/js/main.js' %}"></script>
+    <script src="{% static 'aos/aos.js' %}"></script>
+    <script>
+    AOS.init();
+    </script>
 
 
 

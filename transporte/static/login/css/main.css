@@ -327,18 +327,18 @@ iframe {
 
 .btn-show-pass:hover {
   color: #6a7dfe;
-  color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-  color: -o-linear-gradient(left, #21d4fd, #b721ff);
-  color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-  color: linear-gradient(left, #21d4fd, #b721ff);
+  color: -webkit-linear-gradient(left, #74ebd5, #9face6);
+  color: -o-linear-gradient(left, #74ebd5, #9face6);
+  color: -moz-linear-gradient(left, #74ebd5, #9face6);
+  color: linear-gradient(left, #74ebd5, #9face6); 
 }
 
 .btn-show-pass.active {
   color: #6a7dfe;
-  color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-  color: -o-linear-gradient(left, #21d4fd, #b721ff);
-  color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-  color: linear-gradient(left, #21d4fd, #b721ff);
+  color: -webkit-linear-gradient(left, #74ebd5, #9face6,);
+  color: -o-linear-gradient(left, #74ebd5, #9face6);
+  color: -moz-linear-gradient(left, #74ebd5, #9face6);
+  color: linear-gradient(left, #74ebd5, #9face6); 
 }
 
 
@@ -371,11 +371,7 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a64bf4;
-  background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  
   top: 0;
   left: -100%;
 
@@ -391,7 +387,11 @@ iframe {
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
-
+  background: #6a7dfe;
+  background: -webkit-linear-gradient(left, #9face6, #74ebd5);
+  background: -o-linear-gradient(left,#9face6,#74ebd5);
+  background: -moz-linear-gradient(left, #9face6,#74ebd5);
+  background: linear-gradient(left, #9face6,#74ebd5);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;

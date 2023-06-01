@@ -34,7 +34,7 @@ class reservacionform(forms.ModelForm):
             "apellido": forms.TextInput(attrs={"class": "form-input","Placeholder": "Apellidos", "id":"apellido"}),
             "telefono": forms.TextInput(attrs={"class": "form-input","Placeholder": "Telefono", "id":"telefono"}),
             #"dia": forms.NumberInput(attrs={"class": "","Placeholder": "1", "id":"rpasswd", "max_value":"31", "initial":"19"}),
-            "tipo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle", "id":"passwd"}),
+            "tipo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle",  "id":"tipo_reservacion"}),
             "vehiculo": forms.Select(attrs={"class": "btn btn-secondary dropdown-toggle d-flex w-100 ps-4 pe-4","Placeholder": "Contraseña", "id":"rpassword"}),
            
 

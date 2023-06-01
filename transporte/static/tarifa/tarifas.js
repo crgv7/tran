@@ -60,14 +60,14 @@ function principal(){
   const select = document.getElementsByTagName('select')[0]; //selcciona el primer elemnto select del html.
 
   select.addEventListener('change', (event) => { //añade el evento
-    //console.log(event.target.value)
+    console.log(event.target.value)
       if (event.target.value=="pasaje"){ // si se selecciona pasaje ejecuta la funcion pasaje()
         pasajes(cargas);
       }else if (event.target.value=="carga") {
         carga(pasaje);
 
       }
-      //resultado.textContent = `Te gusta el sabor ${event.target.value}`;
+      
   });
 
 

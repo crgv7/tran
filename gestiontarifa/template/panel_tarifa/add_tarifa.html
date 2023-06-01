@@ -7,32 +7,20 @@
 
     {% block content %}
     <form method="post">{% csrf_token %}
-    <div class=" container-sm mt-4 rounded-3 shadow border-dark colorprincipal w-50" id="contenedor">
+    <div class=" container-sm mt-4 rounded-3 shadow border-dark colorprincipal w-50" id="contenedor" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true">
      <div class="row">
             <div class="row text-center pt-3"><h5>Crear Tarifa</h5></div>
             
                 <div class="row container-sm d-inline-block w-50" id="principal">
                    
                       
-                              {{form.tipo_reservacion|as_crispy_field}}
-                       
-                          
+                            {{form.tipo_reservacion|as_crispy_field}}
+                    
                             {{form.modelo |as_crispy_field}}
 
-
-                       
-                        
                             {{form.cantidad_km |as_crispy_field}}
 
                             <div  class="" id="opcion"></div>
-
-
-                          
-
-                          
-                         
-                 
-
                     </div>
               
 

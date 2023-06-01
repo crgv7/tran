@@ -28,13 +28,17 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+	
+
+  <link rel="stylesheet" href="{% static 'aos/aos.css' %}" />
+	
 <!--===============================================================================================-->
 </head>
 <body>
     
 	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
+		<div class="container-login100 bg-info">
+			<div class="wrap-login100" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true">
 				<form  method="post" class="login100-form validate-form" id="aut">{% csrf_token %}
 					<span class="login100-form-title p-b-26">
 						Bienvenido
@@ -101,7 +105,12 @@
 	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'login/js/main.js' %}"></script>
-	<!--<script src="{% static 'login/js/custom.js' %}"></script> -->
+	
+	<script src="{% static 'aos/aos.js' %}"></script>
+    
+ 	<script>
+ 	AOS.init();
+ 	</script>
 
 </body>
 </html>

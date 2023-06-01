@@ -1,4 +1,4 @@
-
+// responsive
 function pantalla() {
     console.log("se ejecuta la funcion")
     var element=document.getElementById("contenedor")
