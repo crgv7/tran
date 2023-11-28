@@ -2,10 +2,10 @@
 
     ¿Qué hace el proyecto?
     
-    El proyecto es un sistema de gestion de tranporte de una empresa de consolacion del sur. Empresa en la cual se gestionan las reservaciones de vehiculo 
-    hechas por los usuarios. El proyecto es una pagina web que facilita las gestion de la reservaciones hechas por los usuarios, mejora la gestion 
-    administrativa de la secretaria. El cliente reserva rellenando el crud y la secretaria puede gestionar los vehiculos disponible, gestiona las tarifas, 
-    y los itinerarios
+     El proyecto es un sistema de gestión de transporte de una empresa de consolación del sur. Empresa en la cual se gestionan las reservaciones de vehículo.
+    hechas por los usuarios. El proyecto es una página web que facilita las gestión de las reservaciones hechas por los usuarios, mejora la gestión
+    administrativa de la secretaria. El cliente reserva rellenando el CRUD y la secretaria puede gestionar los vehículos disponible, gestiona las tarifas,
+    y los itinerarios.
     
     
     Por qué el proyecto es útil?
